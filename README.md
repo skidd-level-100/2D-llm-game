@@ -16,7 +16,7 @@ We are currently in the initial stages of our project, it is important to note t
         status: DONE needs to be implemented.
 
    
-3. **LLM Character Generation:** The integration of a Large Language Model (LLM) will enable the creation of unique characters for each player. This will help generate customized backstories and dialogue based on user input, enhancing the immersion experience.
+3. **LLM Character Generation:** The integration of a Large Language Model (LLM) will enable the creation of unique characters for each NPC. This will help generate customized backstories and dialogue based on user input, enhancing the immersion experience.
         status: DONE needs to be implemented.
 
    
