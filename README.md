@@ -20,7 +20,7 @@ We are currently in the initial stages of our project, it is important to note t
         status: DONE needs to be implemented.
 
    
-5. **Single Treasure Hunting Quest:** To provide an initial gameplay objective, we will create a single quest revolving around treasure hunting. Players will have to navigate through various dungeons or areas, solve puzzles, and overcome obstacles to reach the treasure. This will also introduce players to the game's storyline and encourage them to continue exploring the world.
+5. **Single Treasure Hunting Quest:** To provide an initial gameplay objective, we will create a single quest revolving around treasure hunting. Players will have to navigate through various tiles to find the treasure.
 	status: WIP
 
 
