@@ -12,7 +12,7 @@ We are currently in the initial stages of our project, it is important to note t
        status: DONE!
         
 
-2. **Basic Combat:** In order to provide a core gameplay experience, we will incorporate basic combat mechanics. Players will be able to attack and defend against other players or enemies.
+2. **Basic Combat:** In order to provide a core gameplay experience, we will incorporate basic combat mechanics. Players will be able to attack against NPCS.
         status: DONE needs to be implemented.
 
    
