@@ -1,8 +1,8 @@
 # this project
 
-This project was conceived with the ambitious goal of introducing two budding developers, myself and my good friend "Banjo", to the world of DevOps. As we embark on our journey to master this fascinating field, we have decided to build a captivating game that showcases our acquired skills.
+This project was conceived with the ambitious goal of introducing two budding developers, myself and my good friend "Banjo", to the world of DevOps. As we embark on our journey to master this fascinating field, we have decided to build a  game.
 
-We are currently in the initial stages of our project, it is important to note that we haven't yet delved into the implementation of DevOps practices. We're currently in Phase 1, which primarily focuses on researching and understanding the fundamentals of DevOps as well as make the basis for our game. Once we've completed this phase, we will begin to apply these practices in our workflow, leading to a smoother software development and deployment process. Our primary focus, for now, is to learn and internalize the principles and concepts of DevOps, which will serve as a strong foundation for the subsequent phases of the project.
+We are currently in the initial stages of our project, it is important to note that we haven't yet delved into the implementation of DevOps practices. We're currently in Phase 1, which primarily focuses on researching and understanding the fundamentals of DevOps as well as make the basis for our game. Once we've completed this phase, we will begin to apply these practices in our workflow, leading to a smoother software development and deployment process.
 
 
     
