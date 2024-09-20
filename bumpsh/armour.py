@@ -1,5 +1,5 @@
 import random
-from weapon import *
+from bumpsh.weapon import *
 class armour():
 
     def __init__(self,rarity,level):

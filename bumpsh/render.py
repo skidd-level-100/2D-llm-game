@@ -1,6 +1,6 @@
 import random
-from mapsetup import *
-from npcs import *
+from bumpsh.mapsetup import *
+from bumpsh.npcs import *
 import os 
 # picks a random thing in a list, seemed useful random probably already has this but I didnt want to look it up
 def pick_rand_in_list(list, seed):

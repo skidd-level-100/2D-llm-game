@@ -1,6 +1,6 @@
-from npcs import *
-from mapsetup import *
-from tile import *
+from bumpsh.npcs import *
+from bumpsh.mapsetup import *
+from bumpsh.tile import *
 
 # returns a tile at the given cordnates
 def get_tile(X, Y):

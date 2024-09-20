@@ -1,4 +1,4 @@
-from mobs import *
+from bumpsh.mobs import *
 
 class player(base_mob):
     mob_type = "player"

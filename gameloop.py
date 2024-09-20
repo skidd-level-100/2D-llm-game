@@ -1,6 +1,6 @@
-from tile import *
-from movement import *
-from combat import *
+from bumpsh.tile import *
+from bumpsh.movement import *
+from bumpsh.combat import *
 import os
 
 # this sets the games initial run up, when we have savable progress this will need a rework

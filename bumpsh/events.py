@@ -1,5 +1,5 @@
-from npcs import *
-from render import *
+from bumpsh.npcs import *
+from bumpsh.render import *
 # WIP
 def populate_with_events(npcs, event_count):
     pass

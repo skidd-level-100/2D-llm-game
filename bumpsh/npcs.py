@@ -1,8 +1,8 @@
-from render import *
-from mapsetup import *
-from armour import *
-from events import *
-from combat import *
+from bumpsh.render import *
+from bumpsh.mapsetup import *
+from bumpsh.armour import *
+from bumpsh.events import *
+from bumpsh.combat import *
 import getch
 import os
 

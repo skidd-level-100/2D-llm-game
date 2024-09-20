@@ -1,4 +1,4 @@
-from npcs import *
+from bumpsh.npcs import *
 import os
 import copy
 
