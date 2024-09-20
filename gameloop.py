@@ -10,9 +10,9 @@ current_tile.player_insert(start_player)
 last_tile_str = str(str(current_tile.npcs[0].current_tile_X) + str(current_tile.npcs[0].current_tile_Y))
 current_tile_str = last_tile_str
 
-
-test_enemy = enemy(10,10,"00", "goblin")
-fight(start_player,test_enemy)
+##uncomment these to test fighting
+#test_enemy = enemy(10,10,"00", "goblin")
+#fight(start_player,test_enemy)
 
 
 while True:
