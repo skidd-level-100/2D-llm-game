@@ -1,5 +1,5 @@
 from ollama import *
-import Personalities
+import banjo.Personalities
 
 NPC_Data_Prompt = "\nThe following data contains thw characters name and triats:"
 
@@ -16,11 +16,16 @@ if content if of darker nature, be vague never specific.
 Also the backstory doesnt always need to justify their behavior.
 make sure you say it all in 3rd Person
 please write one small paragraph for their childhood, and one for their adulthood also saying their durrent age.
-Then after that say "[Likes/Dislikes]:" and name 7 likes or dislikes of this character not of each but total, each one labelled a like or dislike.
+Then after that say "[Likes/Dislikes]:" and name 5 likes or dislikes of this character not of each but total, each one labelled a like or dislike. meaning you could have 3 likes and 2 dislikes or 4 nd 1 or 2 and 3.
 backstory does always need to explain how they got their traits.
 Make this flow together.
 """
-    response = generate("llama3.1-q4_1-unc",backstory_prompt+NPC_Data_Prompt+name+f" age:{age}; traits: {traits}")
+
+#smaller context model so you can generate faster
+#   unc-llama-lexi_ctx_4
+#      and
+#   unc-llama-lexi
+    response = generate("unc-llama-lexi_ctx_4",backstory_prompt+NPC_Data_Prompt+name+f" age:{age}; traits: {traits}")
     response = response["response"]
     return response
 

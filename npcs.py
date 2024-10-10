@@ -3,11 +3,11 @@ from bumpsh.mapsetup import *
 from bumpsh.armour import *
 from bumpsh.events import *
 from bumpsh.combat import *
-import banjo.Initiate_Chat
-import banjo.Inventory
-import banjo.Personalities
-import banjo.Backstory
-import banjo.Name_Generator
+from banjo.Initiate_Chat import *
+from banjo.Inventory import *
+from banjo.Personalities import *
+from banjo.Backstory import *
+from banjo.Name_Generator import *
 import getch
 import os
 
@@ -41,11 +41,11 @@ def is_location_used_by_bot(real_location, npcs):
     return False
         
 # if player location = npc location then run the interact event on that npc
-def event_check(npcs): 
+def event_check(npcs,current_player): 
     used = is_location_used_by_bot(npcs[0].get_my_location(), npcs)
     if used != False:
         if npcs[used].interactable == True: 
-            npcs[used].interaction(npcs[used],npcs[0])
+            npcs[used].interaction(npcs[used],current_player)
 
 # pathing from -> to, returns "left", "right", "up", "down"
 def get_to(from_X, from_Y, target_X, target_Y):
@@ -90,7 +90,7 @@ class base_npc():
         self.Traits : str = "[None]",
         self.History :str = "[None]",
         self.Context : str = "Meeting the player for the first time. but after, dont repeat self. use [Fight] to start combat and complete your goal"
-        self.Inventory = banjo.Inventory.Inventory()
+        self.Inventory = Inventory()
     stats = {
         "fortitude" : 4,
         "strength" : 1,
@@ -147,7 +147,7 @@ class player(base_npc):
     def return_move(self, zero):
         return getch.getch()
 
-    def take_combat_input(self, npc_to_kill):
+    def take_combat_input(self):
         index_number = 1
         for index, value in self.armour.resistances.items():
             print(f"{index_number}) {index}")
@@ -164,6 +164,8 @@ class player(base_npc):
             except Exception as e:
                 print("try again")
                 print(e)
+        print(self.armour.resistances.keys())
+        print(choice)
         return list(self.armour.resistances.keys())[choice]
 
 
@@ -174,7 +176,8 @@ class enemy(base_npc):
     interactable = True
     weapon = weapon(0,0)
     armour = armour(0,0)
-    
+
+
     # gets the players location and pathfinds to it
     def return_move(self, npcs):
         for npc in npcs:
@@ -197,13 +200,17 @@ class enemy(base_npc):
                 return "d"
 
     # when the player is in the same location as this npc it runs this
-    def interaction(self,npc,user):
-        npc.name=banjo.Name_Generator.generate_name()
-        npc.Traits=banjo.Personalities.Give_Personality(3,5)
-        npc.History=banjo.Backstory.get_backstory(npc.name,25,npc.Traits)
-        npc.Context = "Has been hunting down the player to kill the player for a long time. Meeting the player for the first time. but after, dont repeat self. use [Fight] to start combat and complete your goal"
+    def interaction(self,enemy,player):
+        #os.system("clear")
+        #print("interacted")
+        #exit() # game over
+        enemy.name=generate_name()
+        enemy.Traits=Give_Personality(3,5)
+        enemy.History=get_backstory(enemy.name,25,enemy.Traits)
+        enemy.Context = "Has been hunting down the player to kill the player for a long time. wont speak many times before attacking."
 
-        banjo.Initiate_Chat.Initiate_Chat(user,npc)
+        Initiate_Chat(player,enemy)
+
     def take_combat_input(self, npc_to_kill):
         return list(self.armour.resistances.keys())[random.randint(1, len(self.armour.resistances) - 1)]
 

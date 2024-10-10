@@ -1,9 +1,9 @@
-from Initiate_Chat import *
-from Inventory import *
-from Entity import *
-from Personalities import *
-from Backstory import *
-from Name_Generator import *
+from banjo.Initiate_Chat import *
+from banjo.Inventory import *
+from banjo.Entity import *
+from banjo.Personalities import *
+from banjo.Backstory import *
+from banjo.Name_Generator import *
 
 #NPC_1.traits = "Kind,Friendly, wise"
 #NPC_1.History = "[context] - greeting a player for the fist time. setting, - in the town of evertale. backstory-a miner that had madea living off mining his whole life and supports his family,has grown up hearing stories of adventures and still enjoys hearing peoples tales. lives in evertale. Always eager to trade."

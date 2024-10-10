@@ -1,6 +1,6 @@
 import random
 from dataclasses import dataclass
-from Inventory import Inventory
+from banjo.Inventory import Inventory
 
 
 

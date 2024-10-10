@@ -1,7 +1,7 @@
 import random
-with open("first_names","r") as f:
+with open("banjo/first_names","r") as f:
     first_names = [line.strip() for line in f.readlines()]
-with open("last_names","r") as f:
+with open("banjo/last_names","r") as f:
     last_names = [line.strip() for line in f.readlines()]
 
 

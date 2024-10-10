@@ -1,5 +1,5 @@
 import ollama
-from .test.print_test import print_dud
+#from .test.print_test import print_dud
 
 modelfile='''
 FROM llama3.1

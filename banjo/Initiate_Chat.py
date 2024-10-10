@@ -1,6 +1,6 @@
 from ollama import *
-from Inventory import Inventory,Food
-
+from banjo.Inventory import Inventory,Food
+from bumpsh.combat import *
 #response = generate('mistral', 'Why is the sky blue?')
 #print(response['response'])
 
@@ -60,7 +60,7 @@ npc_2 = "Personality-kunning bad smart;backstory-I bad guy thats always looking 
 def Initiate_Chat(User,NPC):
   NPC_Data = (f"""
 [Name] \n{NPC.name}
-\n[Traits / Personality] \n{NPC.traits}
+\n[Traits / Personality] \n{NPC.Traits}
 \n[History of NPC] \n{NPC.History}
 \n[Context of Initial Interaction] \n{NPC.Context}
 \n[Inventory]\n{Inventory_NPC_Format(NPC.Inventory)}
@@ -75,7 +75,7 @@ you will be acting as the voice of an NPC in a game.
 this all takes place in medeival times.
 you only respond with exactly as the NPC would with no other information. 
 with that in mind never state what your about to do as a bot, thats out of character. 
-You can use paratheses to show an action the character does. 
+You can use brackets to show an action the character.
 if the player speaks of unknowns places or things, dont have the NPC act like he knows.
 You will be given a context section towards the beginning of the information given. 
 Its important to note that after the conversaton starts That context shouldnt cause the npc to repeat himself. 
@@ -94,8 +94,8 @@ Remember not to repeat this dialog, only say new response.
 The Player can already see all the dialog that has happened, no need to repeat it.
 you will need to consider this dialog before responding:"""
 
-  NPC_Command_Instructions = """Another vital part of interactions with the player in the use of "NPC Commands. 
-This is how the NPC interacts with the game".
+  NPC_Command_Instructions = """Another vital part of interactions with the player in the use of "NPC Commands". 
+This is how the NPC interacts with the game.
 The game will read these commmands when they say a command, and then activate the command after the chat.
 This is the only time the NPC will say something that doesnt look like  normal conversation or something that looks system like.
 Rememeber this is for the game to read after the NPC says it, then it runs the command.
@@ -173,12 +173,14 @@ nothing before this, remember to reply with with exactly\'no\' or \'yes\' everyt
       print("Trade Initiated")
     if "[Attack]" in response:
       print("Battle Initiated")
+      fight(User,NPC)
+      break
     User_Input = input("\nEnter your response here or type \'exit\' to leave the converation: ")
     past_dialog = past_dialog+"Player:"+User_Input+"\n"
 
 
     if User_Input == "exit":
-      response = generate("llama3.1-q4_1-unc",Initial_Instruction+NPC_Data+NPC_Command_Instructions+dialog_instructions+past_dialog+Reinteration_Of_Instructions+"[Player Starts Leaving]\nIn this case the player has started walking away, leaving the conversation, reply based on if they are leaving out of context, make them react as such, if they already knew that they were leaving them respond as such. your reply will mark the end of the conversation:")
+      response = generate("llama3.1-q4_1-unc",Initial_Instruction+NPC_Data+NPC_Command_Instructions+dialog_instructions+past_dialog+Reinteration_Of_Instructions+"[Player Starts Leaving]\nIn this case the player has started walking away, leaving the conversation, reply based on if they are leaving out of context, or if they are there to fight, make them react as such, if they already knew that they were leaving them respond as such. your reply will mark the end of the conversation:")
       response = response["response"]
       print(response)
       if "[Leave]" in response:
@@ -188,6 +190,8 @@ nothing before this, remember to reply with with exactly\'no\' or \'yes\' everyt
         print("Trade Initiated")
       if "[Attack]" in response:
         print("Battle Initiated")
+        fight(User,NPC)
+        break
     Var555 = False
 
     #if player leaves it says something, input *the player begins to leave, then get a repsonse then end loop.

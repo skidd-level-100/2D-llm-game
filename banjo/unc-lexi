@@ -1,0 +1,10 @@
+FROM /usr/share/ollama/.ollama/models/blobs/sha256-678838a50278f9c62c378bdb328b1ef5b774af50fce7b32dbf09573e597515b7
+TEMPLATE "{{- range .Messages }}<|start_header_id|>{{ .Role }}<|end_header_id|>
+
+{{ .Content }}<|eot_id|>
+{{- end }}<|start_header_id|>assistant<|end_header_id|>
+"
+PARAMETER num_ctx 4000
+PARAMETER stop <|start_header_id|>
+PARAMETER stop <|end_header_id|>
+PARAMETER stop <|eot_id|>

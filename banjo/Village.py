@@ -1,4 +1,4 @@
-from Entity import *
+from banjo.Entity import *
 import random
 
 class Village():
